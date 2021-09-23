@@ -1,0 +1,26 @@
+{
+  "name": "node-hw-CLI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "start:dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olechka-moiseenko/node-hw-CLI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olechka-moiseenko/node-hw-CLI/issues"
+  },
+  "homepage": "https://github.com/olechka-moiseenko/node-hw-CLI#readme",
+  "dependencies": {
+    "nodemon": "^2.0.12",
+    "uuidv4": "^6.2.12"
+  }
+}
