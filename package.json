@@ -1,5 +1,5 @@
 {
-  "name": "node-hw-CLI",
+  "name": "node-hw-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,8 +19,11 @@
     "url": "https://github.com/olechka-moiseenko/node-hw-CLI/issues"
   },
   "homepage": "https://github.com/olechka-moiseenko/node-hw-CLI#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
   "dependencies": {
-    "nodemon": "^2.0.12",
-    "uuidv4": "^6.2.12"
+    "uuid": "^8.3.2",
+    "yargs": "^17.2.0"
   }
 }
