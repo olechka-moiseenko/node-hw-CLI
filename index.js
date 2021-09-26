@@ -1,25 +1,25 @@
 const contactsOperations = require("./contacts");
 
-const workWithContacts = async(type = 'listContacts', id, name, email, phone) => {
-  try {
-    switch(type){
-     case "listContacts":
-       return await contactsOperations.listContacts();
+// const workWithContacts = async(type = 'listContacts', id, name, email, phone) => {
+//   try {
+//     switch(type){
+//      case "listContacts":
+//        return await contactsOperations.listContacts();
     
-     case "getContactById":
-       return await contactsOperations.getContactById(id);
+//      case "getContactById":
+//        return await contactsOperations.getContactById(id);
 
-      case "addContact":
-        return await contactsOperations.addContact(name, email, phone);
+//       case "addContact":
+//         return await contactsOperations.addContact(name, email, phone);
     
-      case "removeContact":
-        return await contactsOperations.removeContact(id);  
-    }
-  }
-   catch(error){
-     throw  error;
-    }
-};
+//       case "removeContact":
+//         return await contactsOperations.removeContact(id);  
+//     }
+//   }
+//    catch(error){
+//      throw  error;
+//     }
+// };
 
 // workWithContacts('listContacts')
 //    .then(data => console.table(data))
@@ -42,61 +42,42 @@ const workWithContacts = async(type = 'listContacts', id, name, email, phone) =>
 //    .then(data => console.table(data))
 //    .catch(error => console.table(error)
 // )
- workWithContacts("removeContact", 4)
- .then(data => console.table(data))
- .catch(error => console.table(error))
+//  workWithContacts("removeContact", 4)
+//  .then(data => console.table(data))
+//  .catch(error => console.table(error))
 
+const argv = require('yargs').argv;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const argv = require('yargs').argv;
-
-// // TODO: рефакторить;
-// async function invokeAction({ action, id, name, email, phone }) {
-//   try {
-//     switch (action) {
-//       case "list":
-//         const contacts = await contactsOperations.listContacts();
-//         console.table(contacts);
-//         break;
+// TODO: рефакторить;
+async function invokeAction({ action, id, name, email, phone }) {
+  try {
+    switch (action) {
+      case "list":
+        const contacts = await contactsOperations.listContacts();
+        console.table(contacts);
+        break;
          
-//       case "get":
-//         const contactById = await contactsOperations.getContactById(id);
-//         console.log(contactById);
-//         break;
+      case "get":
+        const contactById = await contactsOperations.getContactById(id);
+        console.log(contactById);
+        break;
 
-//       case "add":
-//         const addContacts = await contactsOperations.addContact({ name, email, phone });
-//         console.log(addContacts);
-//         break;
+      case "add":
+        const addContacts = await contactsOperations.addContact({ name, email, phone });
+        console.log(addContacts);
+        break;
       
-//       case "remove":
-//         await contactsOperations.removeContact(id);
-//         console.log("Success remove");
-//         break;
-//       default:
-//         console.warn("\x1B[31m Unknown action type!");
-//     }
-//   } catch (error) {
-//     throw error;
-//   }
-// }
+      case "remove":
+        await contactsOperations.removeContact(id);
+        console.log("Success remove");
+        break;
+      default:
+        console.warn("\x1B[31m Unknown action type!");
+    }
+  } catch (error) {
+    throw error;
+  }
+}
 
-// invokeAction(argv);
+invokeAction(argv);
   
