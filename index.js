@@ -11,6 +11,9 @@ const workWithContacts = async(type = 'listContacts', id, name, email, phone) =>
 
       case "addContact":
         return await contactsOperations.addContact(name, email, phone);
+    
+      case "removeContact":
+        return await contactsOperations.removeContact(id);  
     }
   }
    catch(error){
@@ -29,17 +32,19 @@ const workWithContacts = async(type = 'listContacts', id, name, email, phone) =>
 //    .catch(error => console.log(error)
 // )
 
-const newData = {
-  name: "Elizabeth",
-  email: "lizzy.gmail.com",
-  phone: 8050456769
-}
+// const newData = {
+//   name: "Elizabeth",
+//   email: "lizzy.gmail.com",
+//   phone: 8050456769
+// }
 
-workWithContacts("addContact", "", newData)
-   .then(data => console.table(data))
-   .catch(error => console.table(error)
-)
-
+// workWithContacts("addContact", "", newData)
+//    .then(data => console.table(data))
+//    .catch(error => console.table(error)
+// )
+ workWithContacts("removeContact", 4)
+ .then(data => console.table(data))
+ .catch(error => console.table(error))
 
 
 
