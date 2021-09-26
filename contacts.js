@@ -24,7 +24,6 @@ const addContact = async(data) => {
     const contacts = await listContacts();
     const newContact = {...data, id: v4()};
     contacts.push(newContact);
-    // console.log(contactsPath);
     await fs.writeFile("./contacts.json", JSON.stringify(contacts));
     return newContact;
 }
@@ -49,11 +48,5 @@ const removeContact = async(id) => {
 //       const updateContacts = {...contacts[idx], ...data};
 //       contacts[idx] = updateContacts; 
 // }
-
-
-
-
-
-
 
 module.exports = {listContacts, getContactById, addContact, removeContact};
