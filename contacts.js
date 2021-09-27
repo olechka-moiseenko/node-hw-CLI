@@ -9,7 +9,11 @@ const updateContacts = async(newContacts) => {
     await fs.writeFile(contactsPath, JSON.stringify(newContacts))
 }
 
-const listContacts = async() => contacts;
+const listContacts = async() => {
+    const data = await fs.readFile("./db/contacts.json");
+    const contacts = JSON.parse(data);
+    return contacts;
+}
 
 const getContactById = async(id) => {
     const contacts = await listContacts();
@@ -39,14 +43,5 @@ const removeContact = async(id) => {
     return "Success remove";
 }
 
-// const updateContacts = async(id, data) => {
-//       const contacts = await listContacts();
-//       const idx = contacts.findIndex(item = item.id === id);
-//       if(idx === -1){
-//           return null;
-//       }
-//       const updateContacts = {...contacts[idx], ...data};
-//       contacts[idx] = updateContacts; 
-// }
 
 module.exports = {listContacts, getContactById, addContact, removeContact};
